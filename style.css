@@ -1,0 +1,197 @@
+:root {
+  --color-primary: #21808d;
+  --color-primary-light: #32b8c6;
+  --color-primary-dark: #1a6873;
+  --color-bg: #fdfdfc;
+  --color-surface: #fff;
+  --color-accent: #e68161;
+  --color-gray: #768492;
+  --color-dark: #13252b;
+  --color-shadow: 0 4px 16px rgba(33, 128, 141, 0.07);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-full: 9999px;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-dark);
+  scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+header {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--color-shadow);
+  text-align: center;
+  padding: 36px 16px 24px;
+  margin-bottom: 24px;
+  position: relative;
+}
+header h1 {
+  margin: 0 0 8px;
+  font-size: 2.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+header p {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  opacity: 0.92;
+  letter-spacing: 0.01em;
+}
+.logo {
+  position: absolute;
+  right: 28px;
+  top: 24px;
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-full);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 6px rgba(33, 128, 141, 0.08));
+}
+.logo svg {
+  width: 35px;
+  height: 35px;
+  display: block;
+}
+main {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--color-shadow);
+  padding: 24px 20px 32px;
+  margin-bottom: 36px;
+  position: relative;
+}
+.team-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--color-primary);
+  margin: 0 0 16px;
+}
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(206px, 1fr));
+  gap: 18px;
+  padding: 0;
+  margin: 6px 0 0;
+  list-style: none;
+}
+.team-card {
+  background: var(--color-primary-light);
+  color: var(--color-dark);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px rgba(33, 128, 141, 0.04);
+  padding: 24px 18px 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.04rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: box-shadow 0.19s cubic-bezier(0.24, 1.2, 0.36, 1), transform 0.21s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  cursor: pointer;
+}
+.team-card:hover,
+.team-card:focus-within {
+  box-shadow: 0 6px 26px rgba(33, 128, 141, 0.11);
+  transform: translateY(-2px) scale(1.022);
+}
+.team-badge {
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  padding: 2px 16px;
+  margin-bottom: 15px;
+  letter-spacing: 0.07em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.team-card span {
+  margin: 0;
+  text-align: center;
+  word-break: break-word;
+  transition: color 0.18s cubic-bezier(0.24, 1.2, 0.36, 1);
+}
+.team-card:active span {
+  color: var(--color-primary-dark);
+}
+.footer {
+  color: var(--color-gray);
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+  opacity: 0.93;
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(33, 128, 141, 0.18);
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes ripple-effect {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+@media (max-width: 650px) {
+  header {
+    padding-bottom: 36px;
+  }
+  .logo {
+    right: 16px;
+    top: 14px;
+    width: 39px;
+    height: 39px;
+  }
+  .logo svg {
+    width: 26px;
+    height: 26px;
+  }
+  .container {
+    padding: 18px 4px;
+  }
+}
+@media (max-width: 490px) {
+  header h1 {
+    font-size: 1.15rem;
+  }
+  main {
+    padding: 19px 4vw 24px 4vw;
+  }
+  .team-card {
+    padding: 13px 6px 13px;
+    font-size: 0.99rem;
+  }
+  .footer {
+    font-size: 0.99rem;
+  }
+}
